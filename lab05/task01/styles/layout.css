@@ -1,0 +1,89 @@
+/*
+filename: layout.css
+author: Tran Duc Anh Dang
+*/
+
+.menu ul li{
+    display: inline-block;
+}
+
+nav{
+    list-style: none;
+}
+
+aside{
+    width: 30%;
+    border: 4px inset purple;
+    border-radius: 14px;
+    margin: 1em;
+    padding: 1em;
+    background: url(./images/fade.jpg) repeat-x top left;
+    float: right;
+    box-shadow: 10px 10px 5px #aaaaaa; 
+}
+
+aside:hover{
+    display:block;
+}
+
+footer{
+    border-top: 4px double darkgray;
+    clear: both;
+}
+
+#lists{
+    float: left;
+}
+
+table{
+    margin: auto;
+}
+
+#tables{
+    margin: auto;
+    float: right;
+}
+
+#hyperlinks{
+    clear: left;
+    float: left;
+}
+
+#images{
+    float: right;
+}
+
+figure{
+    border:2px solid #ccc;
+}
+
+#lists, #images, #tables, #hyperlinks{
+    width: 50%;
+    text-align: center;
+}
+
+ol, ul, dl {
+    text-align:left;
+} 
+
+article{
+    min-width: 30em;
+}
+
+footer p{
+    display: inline-block;
+    width: 33%;
+}
+
+footer p:first-child{
+    float:left ;
+}
+
+footer p:nth-child(2){
+    text-align: center ;
+}
+
+footer p:last-child{
+    float:right ;
+    text-align: right;
+}

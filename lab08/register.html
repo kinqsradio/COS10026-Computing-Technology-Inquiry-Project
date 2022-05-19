@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Rohirrim Booking</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Rohirrim Booking Form" />
+    <meta name="keywords" content=" " />
+</head>
+
+<body>
+
+    <header>
+        <h1>Rohirrim Ranch Tours</h1>
+        <h2>Booking Form</h2>
+    </header>
+
+    <form id="regform" action="processbooking.php" method="post">
+        <fieldset id="person">
+            <legend>Your details:</legend>
+            <p><label for="firstname">Enter your first name</label>
+                <input type="text" name="firstname" id="firstname" size="20" required/>
+            </p>
+            <p><label for="lastname">Enter your last name</label>
+                <input type="text" name="lastname" id="lastname" size="20" />
+            </p>
+            <fieldset id="species">
+                <legend>Species:</legend>
+                <label for="human">Human</label>
+                <input type="radio" name="species[]" id="human" value="Human" /><br />
+                <label for="dwarf">Dwarf</label>
+                <input type="radio" name="species[]" id="dwarf" value="Dwarf" /><br />
+                <label for="elf">Elf</label>
+                <input type="radio" name="species[]" id="elf" value="Elf" /><br />
+                <label for="hobbit">Hobbit</label>
+                <input type="radio" name="species[]" id="hobbit" value="Hobbit" /><br />
+            </fieldset>
+            <p><label for="age">Enter your age</label>
+                <input type="text" id="age" name="age" size="5">
+            </p>
+
+        </fieldset>
+        <fieldset id="trip">
+            <legend>Your trip:</legend>
+            <fieldset>
+                <legend>Booking:</legend>
+                <label for="1day">1 Day Tour - $200 </label>
+                <input type="checkbox" name="tour[]" id="1day" value="1 day" /><br />
+                <label for="4day">4 Day Tour - $1500</label>
+                <input type="checkbox" name="tour[]" id="4day" value="4 day" /><br />
+                <label for="10day">10 Day Tour - $3000</label>
+                <input type="checkbox" name="tour[]" id="10day" value="10 day" /><br />
+            </fieldset>
+            <p>
+                <label for="food">Menu preferences</label>
+                <select name="food" id="food">
+			<option value="none">Please select</option>
+			<option value="lembas">Lembas</option>
+			<option value="mushrooms">Mushrooms</option>
+			<option value="ent">Ent Draft</option>
+			<option value="cram">Cram</option>
+		</select>
+            </p>
+            <p>
+                <label for="partySize">Number of Travellers</label>
+                <input type="text" id="partySize" name="partySize" maxlength="3" size="3" />
+            </p>
+        </fieldset>
+        <div id="bottom"> </div>
+        <p><input type="submit" value="Book Now!" />
+            <input type="reset" value="Reset" />
+        </p>
+    </form>
+
+
+    <footer>
+        <div>
+            <h2 class="fineprint">Conditions Apply</h2>
+            <p class="fineprint"> Rohirrim Dude Ranch management takes no responsibility for any injury, spells (sleeping or otherwise) , spider-bites, or for anything whatsoever. </p>
+        </div>
+        <p id="contact">Any enquiries please email the <a href="#">manager</a></p>
+    </footer>
+
+</body>
+
+</html>

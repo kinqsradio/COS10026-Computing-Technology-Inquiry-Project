@@ -1,0 +1,62 @@
+/*
+filename: styesheet.css
+author: Tran Duc Anh Dang
+*/
+
+*{
+    font-family: calabri, sans-serif;
+}
+
+h1{
+    color: purple;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2{
+    color: rgb(0,128,128);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+h1 h2 h3{
+    font-family: sans-serif;
+}
+
+aside, footer{
+    font-style: italic;
+}
+
+
+aside:hover{
+    display:none;
+}
+
+
+#images{
+    text-align: center;
+}
+
+.special{
+    color: darkorange;
+    font-weight: bold;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: right;
+}
+
+nav a{
+    text-decoration: none;
+    padding: 0.2em 0.6em;
+    border: 4px solid black;
+    color: black;
+    background-color: white;
+}
+
+nav a:hover{
+    color: white;
+    background-color: purple;
+    transition: 0.5s;
+}

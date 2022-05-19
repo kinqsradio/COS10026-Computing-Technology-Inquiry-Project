@@ -1,0 +1,148 @@
+/* 
+filename: [stylesheet.css] 
+author: [Tran Duc Anh Dang] 
+created: [26 Mar] 
+last modified: [26 Mar] 
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header{
+    width: 100%;
+    padding: 2% 6%;
+}
+
+.header h1{
+    text-align: center;
+    color:purple;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+.nav-link{
+    flex: 100%;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+.nav-link ul li{
+    display: inline-block;
+    position: relative;
+    list-style: none;
+    padding: 8px 12px;
+}
+
+.nav-link ul li a{
+    border: 4px solid #ccc;
+    color: black;
+    text-decoration: none;
+    padding: 0.2em 0.6em;
+}
+
+.nav-link ul li a:hover{
+    background-color: red;
+    border: 4px solid black;
+    color: white;
+    transition: 0.5s,
+}
+
+
+.body-article-text, h2, h3, .text-aside {
+    width: 75%;
+    min-width: none;
+    position: static;
+    align-items: center;
+    display: block;
+    justify-content: left;
+    margin: 20px auto;
+}
+
+.body-article-text p a{
+    text-decoration: none;
+    color: black;
+}
+
+.text-aside:hover{
+    display: none;
+}
+
+.body-article-text ul li{
+    margin-left: 50px;
+}
+
+.body-article-text ol li{
+    margin-left: 50px;
+}
+
+.body-article-text dl dt dd{
+    margin-left: 50px;
+}
+
+h2{
+    color: green;
+}
+
+#heading-heading{
+    color: red;
+}
+
+#heading-paragraph{
+    color:gray;
+}
+
+.special{
+    color: darkorange;
+    font-weight: bold;
+}
+
+table, td, th {
+    font-family: arial, sans-serif;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color:white;
+}
+
+#images h2{
+    text-align: center;
+}
+
+.footer{
+    width: 100%;
+    padding: 2% 6%;
+}
+
+.text-aside, .footer{
+    font-style: italic;
+}
+
+.fcolumn {
+    float: left;
+    width: 50%;
+    text-align: center;
+  }
+  
+  .frow:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

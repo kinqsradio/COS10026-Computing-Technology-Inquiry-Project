@@ -55,7 +55,7 @@ $con = @mysqli_connect($host,$user,$pwd,$sql_db); ?>
 					if ($num_row > 0) 
 						{			
 							$_SESSION['user_id']=$row['user_id'];
-							header('location:manage.php'); //Redirect to main
+							header('location:home.php'); //Redirect to main
 							
 						}
 					else

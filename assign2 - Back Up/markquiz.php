@@ -58,8 +58,6 @@
 				$q4 = sanitise_input($_POST["why"]);
 				$q5 = sanitise_input($_POST["what"]);
 
-
-				//Check attemp number
 				require_once("setting.php");
 				$conn = @mysqli_connect($host,$user,$pwd,$sql_db);
 				$sql_attempt = "attempt";
@@ -70,13 +68,10 @@
 						$attempt = $record['attempt'];}
 				}
 				$attempt++;
-				
 				if ($attempt <= 2){
-					//insert first time
 					$query = "insert into $sql_attempt (uid,attempt) values ('$uid','$attempt');";
 					$result = mysqli_query($conn, $query);
 				}
-				
 
 
 				// while ($record = mysqli_fetch_assoc($result)){
@@ -121,16 +116,7 @@
 							}
 						mysqli_close($conn);
 						}
-						//Record to attempt 
-						require_once("setting.php");
-						$conn = @mysqli_connect($host,$user,$pwd,$sql_db);
-						$sql_attempts = 'attempts';
-						$query = "INSERT INTO $sql_attempts (attempt_date,attempt_time,student_id, given_name, family_name, attempt_number, score) VALUES (CURRENT_DATE,CURRENT_TIME,'$uid','$fname','$lname','$attempt','$score');";
-						$result = mysqli_query($conn, $query);
-						mysqli_close($conn);
-
 						// Record users answers to database
-						
 						require_once("setting.php");
 						$conn = @mysqli_connect($host,$user,$pwd,$sql_db);
 						$sql_table = "markquiz";

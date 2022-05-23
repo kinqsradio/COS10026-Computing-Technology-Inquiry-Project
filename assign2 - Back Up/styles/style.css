@@ -1,0 +1,316 @@
+/*
+filename: style.css
+author: Cafe Sua Da
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.article-section{
+    width: 100%;
+    min-height: auto;
+    padding: 150px 300px;
+    color: black;
+    background-image: linear-gradient(to bottom right, #72644c68, white, #72644c68);
+    margin: auto;
+}
+
+.article-section h1{
+    font-size: 3.125em;
+    font-family: monospace;
+    position:relative;
+    text-align: center;
+    transform: translate(-50%);
+    text-decoration: underline;
+    left: 50%;
+}
+
+.article-section h2{
+    font-size: 1.25em;
+    font-family: monospace;
+    position:relative;
+    text-align: center;
+    transform: translate(-50%);
+    left: 50%;
+}
+
+.paragraph{
+    width: 75%;
+    min-width: none;
+    min-height: 20vh;
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: left;
+    margin: auto;
+    margin-top:auto;
+} 
+
+
+.paragraph p, ul li{
+    font-family: monospace;
+}
+
+.paragraph figure{
+    float: left;
+    width: 100%;
+    min-height: 100%;
+    text-align: center;
+    font-style: italic;
+    font-size: 10px;
+    text-indent: 0;
+    margin: 0.5em;
+}
+
+.figures{
+    float: right;
+}
+.figures figure img{
+    filter: invert(100%) drop-shadow(0 0 0 white);
+
+}
+.figures figure figcaption{
+    font-family: monospace;
+    text-align: center;
+}
+
+.paragraph figure img{
+    width: 70%;
+}
+
+.topnav {
+    padding: 20px 15px;
+    max-width: 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #242424;
+}
+
+
+
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    padding: 20px 25px;
+    text-align: center;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom right, #72644c68, white, #72644c68);
+
+}
+
+
+a {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+}
+
+p {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+}
+
+.form-format{
+    width: 75%;
+    margin: auto;
+}
+
+legend {
+    font-family: "Comfortaa", sans-serif;
+    font-style: normal;
+    font-size: 17px;
+    background-color: #533a14;
+    color: white;
+    border-radius: 4px; 
+}
+
+fieldset {
+    border-color: white;
+    border-radius: 8px;
+    background-image: linear-gradient(to left, #ac9b7f, #ac9b7f);
+}
+
+textarea {
+    background-color: #e2dbcf;
+}
+
+input {
+    background-color: #e2dbcf;
+}
+
+select {
+    background-color: #e2dbcf;
+}
+
+
+.topnav a {
+    color: #ac9b7f;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
+.topnav a:hover {
+    background-color: #282828;
+    color: white;
+    transition: 0.5s;
+}
+
+.topnav a.active {
+    color: white;
+    background-color: #564326;
+}
+
+.submitButton {
+    text-align: center;
+    
+}
+
+.footer{
+    line-height: 1.8;
+    min-height: 0vh;
+    position: relative;
+    bottom: 0;
+
+}
+
+footer {
+    width:100%;
+    text-align: center;
+    padding: 10px 10px;
+    color: aliceblue;
+    background-color: #242424;
+}
+
+footer h4 {
+    font-family: Helvetica;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+footer h5 {
+    color: grey;
+    font-family: Tahoma;
+    font-size: 10px;
+    padding-top: 10px;
+}
+
+footer em{
+    color: white;
+}
+
+footer a p{
+    display: inline-block;
+    color: grey;
+}
+
+footer a p:hover{
+    color: white;
+    transition: 0.5s;
+}
+
+footer a {
+    color: aliceblue;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    background-color: #282828;
+    transition: 0.5s;
+}
+
+table {margin:auto;text-align: center}
+#table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+#table th,
+#table td {
+    padding: 12px 15px;
+}
+table th {
+    background-color: burlywood;
+    color: #ffffff;
+    text-align: center;
+}
+
+h1{color:#854e42; font-size: 2em; font-weight:bold;}
+*{font-family: helvetica, sans-serif;}
+	* {color:black ;}
+	
+border{color:brown}
+	
+	
+ol {list-style-type:number;}
+ul {list-style-type:square;}
+ol ul{list-style-type:arrow;}
+
+h1{text-shadow: 5px 2px 3px beige ;}
+
+.paragraph ul{
+    list-style-type:none;
+    display:flex;
+    justify-content: center;
+    margin: auto;
+    margin-top:auto;
+  
+}
+.paragraph ul li{
+    display: list-item;
+    background-image: linear-gradient(to left, #ac9b7f, #ac9b7f);
+    padding: 5px 10px;
+    color:white;
+    margin: 0 3px;
+}
+
+.paragraph-enhancements{
+    min-height: 40vh;
+}
+
+.paragraph-enhancements ul{
+    list-style-type:none;
+    display:flex;
+    justify-content: center;
+    margin: auto;
+    margin-top:auto;
+  
+}
+.paragraph-enhancements ul li{
+    display: list-item;
+    background-image: linear-gradient(to left, #ac9b7f, #ac9b7f);
+    padding: 5px 10px;
+    color:white;
+    margin: 0 3px;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -21,31 +21,14 @@
     require_once "settings.php";
     $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
     if ($conn) {
-      if ($change_id == "") {
-        echo "<p>Please enter a student ID </p>";
-		echo "<a href=\"manage.php\"><button type=\"button\">Return</button></a>";
-      }
-      else if ($change_score =="") {
-        echo "<p>You need to enter a score</p>";
-		echo "<a href=\"manage.php\"><button type=\"button\">Return</button></a>";
-	} else {
         $query = "UPDATE attempts SET score = '$change_score' WHERE student_id LIKE '%$change_id%' AND attempt_number LIKE '%$change_an%'";
         $result = mysqli_query($conn,$query);
         if ($result) {
           echo "<p>Score has been changed.</p>";
           echo "<p>There are ". mysqli_affected_rows($conn)." Attempts CHANGED.</p>";
           echo "<a href=\"manage.php\"><button type=\"button\">Return</button></a>";
-        }
-        else {
-          echo "<p>Failed to change attempt.</p>";
-		  echo "<a href=\"manage.php\"><button type=\"button\">Return</button></a>";
-        }
-      }
-      mysqli_close($conn);
-    }
-    else {
-		echo "<p>Database connection failed.</p> ";
-	}
+          header ("location: manage.php");
+      mysqli_close($conn);}}
   ?>
 </body>
 </html> 

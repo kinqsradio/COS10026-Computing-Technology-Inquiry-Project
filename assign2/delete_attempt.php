@@ -9,8 +9,8 @@
 </head>
 <body>
 <?php 
- if (isset($_POST["delete_id"]))  {
-    $delete_id = trim($_POST["delete_id"]);
+ if (isset($_GET["delete_id"]))  {
+    $delete_id = trim($_GET["delete_id"]);
   }
   else {
     header ("location: manage.php");
@@ -22,21 +22,15 @@
     if ($delete_id)  {
       $query = "DELETE FROM attempts WHERE student_id = '$delete_id'";
       $result = mysqli_query($conn,$query);
+      $query = "DELETE FROM attempt WHERE uid = '$delete_id'";
+      $result = mysqli_query($conn,$query);
+      $query = "DELETE FROM markquiz WHERE uid = '$delete_id'";
+      $result = mysqli_query($conn,$query);
       if ($result) {
-        echo "<p>Attempts Deleted.</p>";
-        echo "<p>There are ". mysqli_affected_rows($conn)." Attempts Deleted.</p>";
-        echo "<a href=\"manage.php\"><button type=\"button\">Return</button></a>";
+        header ("location: manage.php");
         
       }
-      else {
-        echo "<p>Failed to delete Attempts.</p>";
-        echo "<a href=\"manage.php\"><button type=\"button\">Return</button></a>";
-      }
-    }
-    else {
-      echo "<p>Please Enter a Student ID</p>";
-      echo "<a href=\"manage.php\"><button type=\"button\">Return</button></a>";}
-    mysqli_close($conn);
+    mysqli_close($conn);}
   }
   else {
     echo "<p>Database Connection Failed.</p>";

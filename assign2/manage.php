@@ -1,140 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<meta charset="UTF-8">
-		<meta name="description" content="home page">
-		<meta name="keywords" content ="home">
-		<meta name="author" content ="Nguyen Nam Tung">
+<meta charset="utf-8" />
+  <meta name="description" content="PHP function" />
+  <meta name="keywords" content="HTML5,PHP" />
+  <link rel="icon" href="./images/ico.jpeg">
+  <link rel="stylesheet" href="styles/markquiz.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,400&family=Comfortaa&display=swap" rel="stylesheet">
     <title>Quiz Managing Page</title>
 </head>
 <body>
+<section>
+			<div class="topnav">
+				<strong><a href="index.html">HOME</a></strong>
+				<strong><a href="topic.html">TOPIC</a></strong>
+				<strong><a href="quiz.html">QUIZ</a></strong>
+				<strong><a href="enhancements.html">ENHANCEMENTS</a></strong>
+				<strong><a href="admin.php" class="active">MANAGE</a></strong>
+			</div>
+	</section>
 <?php 
 include('setting.php');
 include('session.php'); 
 $conn = mysqli_connect($host,$user,$pwd,$sql_db);
 $result=mysqli_query($conn, "select * from users where user_id='$session_id'")or die('Error In Session');
 $row=mysqli_fetch_array($result);
+?>
+<section class="article-section" id="article_section">
+  <h1>All Attempts</h1>
+  <form action="manage.php" method="POST">
+    <label>Sort by: </label>
+    <button type="submit" name="funciton_button" value="student_id_sort">Student ID</button>
+    <button type="submit" name="funciton_button" value="given_name_sort">Given Name</button>
+    <button type="submit" name="funciton_button" value="family_name_sort">Family Name</button>
+    <button type="submit" name="funciton_button" value="score_sort">Score</button>
+  </form>
+  <form action="manage.php" method ="POST">
+   <label>Student Attempt</label>
+    <button type="submit" name="funciton_button" value="a">List of students who got 100% on their first attempt</button>
+    <button type="submit" name="funciton_button" value="b">List of students who got less than 50% on their second attempt</button>
+</form>
+<form action="manage.php" method="POST">
+    <p><label>Search: <input type="text" name="funciton_button"></label></p>
+    <input type="submit" value="Search"/>
+  </form>
 
- ?>
-
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<div class="form-wrapper"> 
-    <center><h3>Welcome: <?php echo $row['name']; ?> </h3></center>
-	 <div class="reminder">
+  <div class="reminder">
     <p><a href="logout.php">Log out</a></p>
   </div>
-</div>
 
-</body>
-</html>
-<h1>All Attempts</h1>
-<form action="manage.php" method="POST">
-  <label>Sort by: </label>
-  <button type="submit" name="order_by" value="student_id_sort">Student ID</button>
-  <button type="submit" name="order_by" value="given_name_sort">Given Name</button>
-  <button type="submit" name="order_by" value="family_name_sort">Family Name</button>
-  <button type="submit" name="order_by" value="score_sort">Score</button>
-</form>
-<?php
-#SORT 
-  $query = "SELECT * FROM attempts";
-   if (isset($_POST["order_by"])) {
-    switch($_POST['order_by']) {
+  <?php
+
+  //Main Function to sort  
+  if ((isset($_POST["funciton_button"])))  {
+    $id = trim($_POST["funciton_button"]);
+    switch($_POST['funciton_button']) {
       case "student_id_sort":
-        $query .= " ORDER BY student_id";
+        $query = "SELECT * FROM attempts ORDER BY student_id";
         break;
       case "given_name_sort":
-        $query .= " ORDER BY given_name";
+        $query = "SELECT * FROM attempts ORDER BY given_name";
         break;
       case "family_name_sort":
-        $query .= " ORDER BY family_name";
+        $query = "SELECT * FROM attempts ORDER BY family_name";
         break;
       case "score_sort":
-        $query .= " ORDER BY score";
+        $query = "SELECT * FROM attempts ORDER BY CAST(score AS UNSIGNED) DESC";
           break; 
+      case "a":
+        $query = "SELECT * FROM attempts WHERE attempt_number = 1 and score = 3";
+        break;
+      case "b":
+        $query = "SELECT * FROM attempts WHERE attempt_number = 2 and score < 5";
+        break;
+      case "$search_id":
+        $query = "SELECT * FROM attempts WHERE student_id LIKE '%$id%' or given_name LIKE '%$id%'";
+        break;
       }
-      } else {
-          $query = "SELECT * FROM attempts";
-      }
-        
-#RUNNING QUERY
-require_once ("settings.php");
-$conn = @mysqli_connect($host,$user,$pwd,$sql_db);
-if (!$conn) {
-  echo "<p>Database Connection Failed</p>";
-} else {
-  $result = mysqli_query($conn, $query);
-  if (!$result) {
-    echo "<p>Something is wrong with ", $query, "</p>";
-  } else {
-        $row = mysqli_fetch_assoc($result);
-        if ($row) {
-            echo "<table border = \"1\">\n";
-            echo "<tr>\n"
-            ."<th scope = \"col\">Attempt ID</th>\n "
-            ."<th scope = \"col\">Attempt Date</th>\n "
-            ."<th scope = \"col\">Attempt Time</th>\n "
-            ."<th scope = \"col\">Student ID</th>\n "
-            ."<th scope = \"col\">Given Name</th>\n "
-            ."<th scope = \"col\">Family Name</th>\n "
-            ."<th scope = \"col\">Attempt Number</th>\n "
-            ."<th scope = \"col\">Score</th>\n "
-            ."</tr>\n";
-        while ($row){
-            echo "<tr>\n";
-            echo "<td>",$row["attempt_id"],"</td>\n";
-            echo "<td>",$row["attempt_date"],"</td>\n";
-            echo "<td>",$row["attempt_time"],"</td>\n";
-            echo "<td>",$row["student_id"],"</td>\n";
-            echo "<td>",$row["given_name"],"</td>\n";
-            echo "<td>",$row["family_name"],"</td>\n";
-            echo "<td>",$row["attempt_number"],"</td>\n";
-            echo "<td>",$row["score"],"</td>\n";
-            $row = mysqli_fetch_assoc($result);
-      }
-      echo "</table>\n";
-      mysqli_free_result($result);
-    }
-    else {echo "<p>There are no attempts</p>";}
+  }else{
+    $id = '';
+    $query = "SELECT * FROM attempts";
   }
-  mysqli_close($conn);
-}  
-?>
+     
+  #RUNNING QUERY
+  require_once ("settings.php");
+  $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
+  if (!$conn) {
+    echo "<p>Database Connection Failed</p>";
+  } else {
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+      echo "<p>Something is wrong with ", $query, "</p>";
+    } else {
+          $row = mysqli_fetch_assoc($result);
+          if ($row) {
+              echo "<table id='table'>";
+              echo "<tr>\n"
+              ."<th scope = \"col\">Attempt ID</th>\n "
+              ."<th scope = \"col\">Attempt Date</th>\n "
+              ."<th scope = \"col\">Attempt Time</th>\n "
+              ."<th scope = \"col\">Student ID</th>\n "
+              ."<th scope = \"col\">Given Name</th>\n "
+              ."<th scope = \"col\">Family Name</th>\n "
+              ."<th scope = \"col\">Attempt Number</th>\n "
+              ."<th scope = \"col\">Score</th>\n "
+              ."<th scope = \"col\">Change Score</th>\n "
+              ."<th scope = \"col\">Delete Attempt</th>\n "
+              ."</tr>\n";
+          while ($row){
+              echo "<tr>\n";
+              echo "<td>",$row["attempt_id"],"</td>\n";
+              echo "<td>",$row["attempt_date"],"</td>\n";
+              echo "<td>",$row["attempt_time"],"</td>\n";
+              echo "<td>",$row["student_id"],"</td>\n";
+              echo "<td>",$row["given_name"],"</td>\n";
+              echo "<td>",$row["family_name"],"</td>\n";
+              echo "<td>",$row["attempt_number"],"</td>\n";
+              echo "<td>",$row["score"],"</td>\n";
+              echo "<td><form action='change_attempt.php' method='POST'><input type='hidden' type='text' name='change_id' value=",$row['student_id'],"><input type='hidden' type='text' name='change_an' value=",$row['attempt_number'],"><input type='text' name='change_score'><input type='submit' value='Save'/></form></td>";
+              echo "<td><form action='delete_attempt.php' method='GET'><input type='hidden' name='delete_id' value=",$row['student_id'],"><input type='submit' value='Reset'/></form></td>\n";
+              $row = mysqli_fetch_assoc($result);
+        }
 
-<form action="search_attempt.php" method="POST">
-  <h1>Search By Student ID</h1>
-  <p><label>Student ID: <input type="text" name="search_id"></label></p>
-  <input type="submit" value="Search by ID"/>
-  <button type="reset">Reset</button>
-  <h1>Search By Name</h1>
-  <p><label>Name: <input type="text" name="search_name"></label></p>
-  <input type="submit" value="Search by Name"/>
-  <button type="reset">Reset</button>
-</form>
+        
+        echo "</table>\n";
+        mysqli_free_result($result);
+      }
+      else {echo "<p>No Results</p>";}
+    }
+    mysqli_close($conn);
+  }  
+  ?>
 
-<form action="list_attempt.php" method ="POST">
-  <h1>Student Attempt</h1>
-  <p><button type="submit" name="list" value="a">List of students who got 100% on their first attempt</button></p>
-  <p><button type="submit" name="list" value="b">List of students who got less than 50% on their second attempts</button></p>
-</form>
-
-<form action="delete_attempt.php" method="POST"> 
-<h1>Delete Attempt</h1>
-<p><label>Student ID <input type="text" name="delete_id"></label></p>
-<input type="submit" value="Delete"/>
-</form>
-
-<form action="change_attempt.php" method="POST">
-<h1>Change Attempt</h1>
-<p><label>Student ID: <input type="text" name="change_id"></label></p>
-<p><label>Attempt Number: <input type="text" name="change_an"></label></p>
-<p><label>Score: <input type="text" name="change_score"></label></p>
-<input type="submit" value="Change"/>
-</form>
-
+</section>
 </body>
 </html> 

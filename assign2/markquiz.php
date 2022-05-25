@@ -224,7 +224,7 @@
 							// }
 							//mysqli_free_result($result);
 							
-						}if($score == 1 and $score < 2 ){
+						}if($attempt == 1){
 							echo "<a href=\"quiz.html\"><button type=\"button\">Return</button></a>";}
 						if ($score == 0){
 							echo "<p>Invalid Answer since your score is 0</p>";

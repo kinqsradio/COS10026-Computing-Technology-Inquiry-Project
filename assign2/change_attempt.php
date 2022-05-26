@@ -18,7 +18,7 @@
       header ("location: manage.php");
       exit();
     }
-    require_once "settings.php";
+    require_once "setting.php";
     $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
     if ($conn) {
         $query = "UPDATE attempts SET score = '$change_score' WHERE student_id LIKE '%$change_id%' AND attempt_number LIKE '%$change_an%'";

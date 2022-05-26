@@ -16,7 +16,7 @@
     header ("location: manage.php");
     exit();
   }
-  require_once "settings.php";
+  require_once "setting.php";
   $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
   if ($conn) {
     if ($delete_id)  {

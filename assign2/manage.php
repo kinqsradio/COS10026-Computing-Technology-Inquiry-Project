@@ -70,12 +70,12 @@ $row=mysqli_fetch_array($result);
         $query = "SELECT * FROM attempts ORDER BY CAST(score AS UNSIGNED) DESC";
           break; 
       case "a":
-        $query = "SELECT * FROM attempts WHERE attempt_number = 1 and score = 3";
+        $query = "SELECT * FROM attempts WHERE attempt_number = 1 and score = 100";
         break;
       case "b":
-        $query = "SELECT * FROM attempts WHERE attempt_number = 2 and score < 5";
+        $query = "SELECT * FROM attempts WHERE attempt_number = 2 and score < 50";
         break;
-      case "$search_id":
+      case "$id":
         $query = "SELECT * FROM attempts WHERE student_id LIKE '%$id%' or given_name LIKE '%$id%'";
         break;
       }
@@ -85,7 +85,7 @@ $row=mysqli_fetch_array($result);
   }
      
   #RUNNING QUERY
-  require_once ("settings.php");
+  require_once ("setting.php");
   $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
   if (!$conn) {
     echo "<p>Database Connection Failed</p>";
@@ -123,8 +123,6 @@ $row=mysqli_fetch_array($result);
               echo "<td><form action='delete_attempt.php' method='GET'><input type='hidden' name='delete_id' value=",$row['student_id'],"><input type='submit' value='Reset'/></form></td>\n";
               $row = mysqli_fetch_assoc($result);
         }
-
-        
         echo "</table>\n";
         mysqli_free_result($result);
       }

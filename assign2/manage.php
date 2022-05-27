@@ -18,6 +18,7 @@
 				<strong><a href="topic.php">TOPIC</a></strong>
 				<strong><a href="quiz.php">QUIZ</a></strong>
 				<strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
+        <strong><a href="enhancements2.php">ENHANCEMENTS 2</a></strong>
 				<strong><a href="admin.php" class="active">MANAGE</a></strong>
 			</div>
 	</section>
@@ -90,7 +91,7 @@ $row=mysqli_fetch_array($result);
   if (!$conn) {
     echo "<p>Database Connection Failed</p>";
   } else {
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn,$query);
     if (!$result) {
       echo "<p>Something is wrong with ", $query, "</p>";
     } else {

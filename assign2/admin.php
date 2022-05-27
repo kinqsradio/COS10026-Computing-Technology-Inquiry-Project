@@ -22,6 +22,7 @@ $con = @mysqli_connect($host,$user,$pwd,$sql_db); ?>
 			<strong><a href="topic.php">TOPIC</a></strong>
 			<strong><a href="quiz.php">QUIZ</a></strong>
 			<strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
+			<strong><a href="enhancements2.php">ENHANCEMENTS 2</a></strong>
 			<strong><a href="admin.php"  class="active">MANAGE</a></strong>
 		</div>
 	</section>

@@ -6,10 +6,9 @@
 	<link rel="icon" href="./images/ico.jpeg">
 	<meta name="keywords" content="HTML, CSS, PHP"/>
 	<meta name="author" content="Team 4/Cafe Sua Da / Enton, Thanh, Oscar, Tung, Anh" />
-	<link href="styles/style.css" rel="stylesheet"/>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,400&display=swap" rel="stylesheet">
+	<?php 
+		include_once "header.html";
+	?>
 	<title>Topic Description page</title>
 </head>
 <body oncontextmenu="return false;">
@@ -19,6 +18,7 @@
 			<strong><a href="topic.php" class="active">TOPIC</a></strong>
 			<strong><a href="quiz.php">QUIZ</a></strong>
 			<strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
+			<strong><a href="enhancements2.php">ENHANCEMENTS 2</a></strong>
 			<strong><a href="admin.php">MANAGE</a></strong>
 		</div>
 	</section>

@@ -18,10 +18,10 @@ $con = @mysqli_connect($host,$user,$pwd,$sql_db); ?>
 <body>
 	<section>
 		<div class="topnav">
-			<strong><a href="index.html">HOME</a></strong>
-			<strong><a href="topic.html">TOPIC</a></strong>
-			<strong><a href="quiz.html">QUIZ</a></strong>
-			<strong><a href="enhancements.html">ENHANCEMENTS</a></strong>
+			<strong><a href="index.php">HOME</a></strong>
+			<strong><a href="topic.php">TOPIC</a></strong>
+			<strong><a href="quiz.php">QUIZ</a></strong>
+			<strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
 			<strong><a href="admin.php"  class="active">MANAGE</a></strong>
 		</div>
 	</section>
@@ -66,5 +66,8 @@ $con = @mysqli_connect($host,$user,$pwd,$sql_db); ?>
 		?>
 		</div>
 	</section>
+<?php
+	include_once "footer.html";
+?>
 </body>
 </html>

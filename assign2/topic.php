@@ -15,10 +15,10 @@
 <body oncontextmenu="return false;">
 	<section>
 		<div class="topnav">
-			<strong><a href="index.html">HOME</a></strong>
-			<strong><a href="topic.html" class="active">TOPIC</a></strong>
-			<strong><a href="quiz.html">QUIZ</a></strong>
-			<strong><a href="enhancements.html">ENHANCEMENTS</a></strong>
+			<strong><a href="index.php">HOME</a></strong>
+			<strong><a href="topic.php" class="active">TOPIC</a></strong>
+			<strong><a href="quiz.php">QUIZ</a></strong>
+			<strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
 			<strong><a href="admin.php">MANAGE</a></strong>
 		</div>
 	</section>
@@ -182,17 +182,8 @@
 
 	</section>
 
-	
-	<section class="footer">
-		<footer>
-			<h4>CREDITS</h4>
-			<a href="mailto:103995439@student.swin.edu.au"><p>Anh</p></a>
-			<a href="mailto:104024567@student.swin.edu.au"><p>Enton</p></a>
-			<a href="mailto:103181157@student.swin.edu.au"><p>Nam</p></a>
-			<a href="mailto:104026152@student.swin.edu.au"><p>Oscar</p></a>
-			<a href="mailto:102649968@student.swin.edu.au"><p>Thanh</p></a>
-			<h5>&copy; 2022 <em>Team Cafe Sua Da</em></h5>
-		</footer>
-	</section>
+<?php
+	include_once "footer.html";
+?>
 
 </body>

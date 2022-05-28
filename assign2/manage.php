@@ -13,16 +13,17 @@
 </head>
 <body>
 <section>
-			<div class="topnav">
-				<strong><a href="index.php">HOME</a></strong>
-				<strong><a href="topic.php">TOPIC</a></strong>
-				<strong><a href="quiz.php">QUIZ</a></strong>
-				<strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
+      <div class="topnav">
+        <strong><a href="index.php">HOME</a></strong>
+        <strong><a href="topic.php">TOPIC</a></strong>
+        <strong><a href="quiz.php">QUIZ</a></strong>
+        <strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
         <strong><a href="enhancements2.php">ENHANCEMENTS 2</a></strong>
-				<strong><a href="admin.php" class="active">MANAGE</a></strong>
-			</div>
-	</section>
-<?php 
+        <strong><a href="admin.php" class="active">MANAGE</a></strong>
+      </div>
+  </section>
+<?php
+error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 include('setting.php');
 include('session.php'); 
 $conn = mysqli_connect($host,$user,$pwd,$sql_db);
@@ -91,9 +92,9 @@ $row=mysqli_fetch_array($result);
   if (!$conn) {
     echo "<p>Database Connection Failed</p>";
   } else {
-    $result = mysqli_query($conn,$query);
+    $result = mysqli_query($conn, $query);
     if (!$result) {
-      echo "<p>Something is wrong with ", $query, "</p>";
+      echo "<p>No Results</p>";
     } else {
           $row = mysqli_fetch_assoc($result);
           if ($row) {
@@ -132,6 +133,7 @@ $row=mysqli_fetch_array($result);
     mysqli_close($conn);
   }  
   ?>
+
 </section>
 </body>
 </html> 

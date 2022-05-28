@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<?php 
-		include_once "header.html";
-	?>
+	#<?php 
+		#include_once "header.html"; #Cai duoi phai la inc, voi ca trong phan head k the de co code php dc
+	#?>
 	<meta name="descriptions" content="COS10026 Assignment Part 1" />
 	<meta name="keywords" content="HTML, CSS, PHP"/>
 	<meta name="author" content="Cafe Sua Da / Enton, Thanh, Oscar, Tung, Anh" />

@@ -141,6 +141,5 @@
                                                         $query = "DELETE FROM attempts WHERE student_id= $uid and attempt_number=$attempt;";
                                                         $result = mysqli_query($conn, $query);mysqli_close($conn);}}}
                                                         else{
-                                                            echo "<div align='center' class='paragraph'><p>You have no attempts left</p></div>"; // No attempt left
-                                                            echo "<a href=\"quiz.php\"><button type=\"button\">Return</button></a>";}}
+                                                            echo "<div align='center' class='paragraph'><p>You have no attempts left</p></div>";}} // No attempt left                                                           
                                                         else{header("location: quiz.php");}?></section></body></html>

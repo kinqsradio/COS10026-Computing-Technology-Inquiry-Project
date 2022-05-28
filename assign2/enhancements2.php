@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<?php 
-		#include_once "header.html";
+		include_once "header.html";
 	?>
 	<meta name="descriptions" content="COS10026 Assignment Part 1" />
 	<meta name="keywords" content="HTML, CSS, PHP"/>

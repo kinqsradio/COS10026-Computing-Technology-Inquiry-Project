@@ -46,7 +46,8 @@
                     given_name VARCHAR(500),
                     family_name VARCHAR(500),
                     attempt_number INT(11),
-                    score INT(11) );";
+                    score INT(11) )";
+            $result = mysqli_query($conn,$query);
         }
         mysqli_close($conn);
         if (isset($_POST["uid"])){

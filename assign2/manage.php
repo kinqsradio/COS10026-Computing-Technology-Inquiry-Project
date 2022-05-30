@@ -18,22 +18,22 @@
         <strong><a href="topic.php">TOPIC</a></strong>
         <strong><a href="quiz.php">QUIZ</a></strong>
         <strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
-        <strong><a href="enhancements2.php">ENHANCEMENTS 2</a></strong>
+        <strong><a href="phpenhancements.php">ENHANCEMENTS 2</a></strong>
         <strong><a href="admin.php" class="active">MANAGE</a></strong>
       </div>
-  </section>
+</section>
 <?php
 error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 include('setting.php');
 include('session.php'); 
 $conn = mysqli_connect($host,$user,$pwd,$sql_db);
-$result=mysqli_query($conn, "select * from users where user_id='$session_id'")or die('Error In Session');
+$result=mysqli_query($conn, "select * from users where user_id='$session_id'") or die('Error In Session');
 $row=mysqli_fetch_array($result);
 ?>
 <section class="article-section" id="article_section">
-  <h1>All Attempts</h1>
-  <form action="manage.php" method="POST">
-    <label>Sort by: </label>
+  <h1>All Attempts</h1> 
+  <form action="manage.php" method="POST"> 
+    <label>Sort by: </label> <!-- Sorting buttons -->
     <button type="submit" name="funciton_button" value="student_id_sort">Student ID</button>
     <button type="submit" name="funciton_button" value="given_name_sort">Given Name</button>
     <button type="submit" name="funciton_button" value="family_name_sort">Family Name</button>
@@ -44,49 +44,49 @@ $row=mysqli_fetch_array($result);
     <button type="submit" name="funciton_button" value="a">List of students who got 100% on their first attempt</button>
     <button type="submit" name="funciton_button" value="b">List of students who got less than 50% on their second attempt</button>
 </form>
-<form action="manage.php" method="POST">
-    <p><label>Search: <input type="text" name="funciton_button"></label></p>
+<form action="manage.php" method="POST"> <!-- Search -->
+    <p><label>Search (Given Name): <input type="text" name="search_name"></label></p>
+    <p><label>Search (Student ID): <input type="text" name="search_id"></label></p>
     <input type="submit" value="Search"/>
-  </form>
+</form>
 
-  <div class="reminder">
+  <div class="reminder"> <!-- Log out button -->
     <p><a href="logout.php">Log out</a></p>
   </div>
 
   <?php
-
   //Main Function to sort  
-  if ((isset($_POST["funciton_button"])))  {
-    $id = trim($_POST["funciton_button"]);
+  if (isset($_POST["search_name"]) || isset($_POST["search_id"])) {
+    $search_name = trim($_POST["search_name"]);
+    $search_id = trim($_POST["search_id"]);
+    $query = "SELECT * FROM attempts WHERE student_id LIKE '%$search_id%' AND given_name LIKE '%$search_name%'";} #search query 
+  else {
+  $query = "SELECT * FROM attempts ";
+  if ((isset($_POST["funciton_button"]))) {
     switch($_POST['funciton_button']) {
-      case "student_id_sort":
+      case "student_id_sort": //Sort by student ID
         $query = "SELECT * FROM attempts ORDER BY student_id";
         break;
-      case "given_name_sort":
+      case "given_name_sort": //Sort by given name 
         $query = "SELECT * FROM attempts ORDER BY given_name";
         break;
-      case "family_name_sort":
+      case "family_name_sort": //Sort by faminy name
         $query = "SELECT * FROM attempts ORDER BY family_name";
         break;
-      case "score_sort":
+      case "score_sort": //Sort by score
         $query = "SELECT * FROM attempts ORDER BY CAST(score AS UNSIGNED) DESC";
           break; 
-      case "a":
+      case "a": //Sort by 100% on first attempt
         $query = "SELECT * FROM attempts WHERE attempt_number = 1 and score = 100";
         break;
-      case "b":
+      case "b": //Sort by less than 50% on second atempt
         $query = "SELECT * FROM attempts WHERE attempt_number = 2 and score < 50";
         break;
-      case "$id":
-        $query = "SELECT * FROM attempts WHERE student_id LIKE '%$id%' or given_name LIKE '%$id%'";
-        break;
       }
-  }else{
-    $id = '';
-    $query = "SELECT * FROM attempts";
-  }
-     
-  #RUNNING QUERY
+    }else{
+    $query = "SELECT * FROM attempts";}
+  }     
+  #Running query and create attempt table
   require_once ("setting.php");
   $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
   if (!$conn) {
@@ -122,7 +122,7 @@ $row=mysqli_fetch_array($result);
               echo "<td>",$row["attempt_number"],"</td>\n";
               echo "<td>",$row["score"],"</td>\n";
               echo "<td><form action='change_attempt.php' method='POST'><input type='hidden' type='text' name='change_id' value=",$row['student_id'],"><input type='hidden' type='text' name='change_an' value=",$row['attempt_number'],"><input type='text' name='change_score'><input type='submit' value='Save'/></form></td>";
-              echo "<td><form action='delete_attempt.php' method='GET'><input type='hidden' name='delete_id' value=",$row['student_id'],"><input type='submit' value='Reset'/></form></td>\n";
+              echo "<td><form action='delete_attempt.php' method='GET'><input type='hidden' name='delete_id' value=",$row['student_id'],"><input type='submit' value='Delete'/></form></td>\n";
               $row = mysqli_fetch_assoc($result);
         }
         echo "</table>\n";
@@ -133,7 +133,6 @@ $row=mysqli_fetch_array($result);
     mysqli_close($conn);
   }  
   ?>
-
 </section>
 </body>
 </html> 

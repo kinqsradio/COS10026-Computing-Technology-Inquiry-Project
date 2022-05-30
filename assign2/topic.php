@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<meta name="description" content="Assignment 1" />
-	<link rel="icon" href="./images/ico.jpeg">
-	<meta name="keywords" content="HTML, CSS, PHP"/>
-	<meta name="author" content="Team 4/Cafe Sua Da / Enton, Thanh, Oscar, Tung, Anh" />
 	<?php 
-		include_once "header.html";
+		include_once "header.inc";
 	?>
 	<title>Topic Description page</title>
 </head>
 <body oncontextmenu="return false;">
-	<section>
+<section>
 		<div class="topnav">
 			<strong><a href="index.php">HOME</a></strong>
 			<strong><a href="topic.php" class="active">TOPIC</a></strong>
 			<strong><a href="quiz.php">QUIZ</a></strong>
 			<strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
-			<strong><a href="enhancements2.php">ENHANCEMENTS 2</a></strong>
+			<strong><a href="phpenhancements.php">ENHANCEMENTS 2</a></strong>
 			<strong><a href="admin.php">MANAGE</a></strong>
 		</div>
-	</section>
-
-	
+</section>
 	<section class="article-section">
 		<h1>COFFEE SCRIPT TOPIC PAGE</h1>
 		<h2> Who currently manages Coffee script? </h2>
@@ -183,7 +176,7 @@
 	</section>
 
 <?php
-	include_once "footer.html";
+	include_once "footer.inc";
 ?>
 
 </body>

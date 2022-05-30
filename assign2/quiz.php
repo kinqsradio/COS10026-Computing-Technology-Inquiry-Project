@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<?php 
-		include_once "header.html";
+		include_once "header.inc"; //include the head part 
 	?>
 	<meta name="descriptions" content="COS10026 Assignment Part 1" />
 	<meta name="keywords" content="HTML, CSS, PHP"/>
@@ -11,16 +11,16 @@
 	<title>Quiz | CoffeeScript</title>
 </head>
 <body oncontextmenu="return false;">
-	<section>
+<section>
 		<div class="topnav">
 			<strong><a href="index.php">HOME</a></strong>
 			<strong><a href="topic.php">TOPIC</a></strong>
 			<strong><a href="quiz.php" class="active">QUIZ</a></strong>
 			<strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
-			<strong><a href="enhancements2.php">ENHANCEMENTS 2</a></strong>
+			<strong><a href="phpenhancements.php">ENHANCEMENTS 2</a></strong>
 			<strong><a href="admin.php">MANAGE</a></strong>
 		</div>
-	</section>
+</section>
 	
 	<h1>An Unofficial Quiz on CoffeeScript</h1>
 	<section class="form-format">
@@ -32,17 +32,17 @@
 			<p>
 				<label for="uid">Student ID</label>
 				<br />
-				<input type="text" name="uid" id="uid" size="10" pattern="[0-9]{7,10}" required/>
+				<input type="text" name="uid" id="uid" size="10" pattern="[0-9]{7,10}" maxlength="10" required/>
 			</p>
 
 			<p>
-				<label for="fname">Given Name</label>
+				<label for="fname">Given Name (optional)</label>
 				<br />
 				<input type="text" name="fname" id="fname" maxlength="15" size="15" pattern="^[a-zA-Z]+$" required/>
 			</p>
 
 			<p>
-				<label for="lname">Family Name</label>
+				<label for="lname">Family Name (optional)</label>
 				<br />
 				<input type="text" name="lname" id="lname" maxlength="15" size="15" pattern="^[a-zA-Z]+$" required/>
 			</p>
@@ -158,7 +158,7 @@
 	</section>
 	
 <?php
-	include_once "footer.html";
+	include_once "footer.inc"; // includ the footer
 ?>
 
 </body>

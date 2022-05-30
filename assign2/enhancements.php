@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
 	<?php 
-		include_once "header.html";
+		include_once "header.inc";
 	?>
-	<meta name="descriptions" content="COS10026 Assignment Part 1" />
-	<meta name="keywords" content="HTML, CSS, PHP"/>
-	<meta name="author" content="Cafe Sua Da / Enton, Thanh, Oscar, Tung, Anh" />
 	<title>Enhancements | CoffeeScript</title>
 </head>
 <body oncontextmenu="return false;">
-	<section>
+<section>
 		<div class="topnav">
 			<strong><a href="index.php">HOME</a></strong>
 			<strong><a href="topic.php">TOPIC</a></strong>
 			<strong><a href="quiz.php">QUIZ</a></strong>
 			<strong><a href="enhancements.php" class="active">ENHANCEMENTS</a></strong>
-			<strong><a href="enhancements2.php">ENHANCEMENTS 2</a></strong>
+			<strong><a href="phpenhancements.php">ENHANCEMENTS 2</a></strong>
 			<strong><a href="admin.php">MANAGE</a></strong>
 		</div>
-	</section>
-
-	
+</section>
 	<section class="article-section" id="article_section">
 		<h1>WEBSITE ENHANCEMENTS</h1>
 		<div class="paragraph-enhancements">
@@ -62,6 +56,7 @@
 	</section>
 
 <?php
-	include_once "footer.html";
+	include_once "footer.inc";
 ?>
 </body>
+</html>

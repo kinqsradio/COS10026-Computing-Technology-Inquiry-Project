@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="description" content="homepage">
-	<meta name="keywords" content ="home">
-	<meta name="author" content ="Nguyen Nam Tung">
+	  <?php 
+      include_once "header.inc";
+    ?>
     <title>Delete Attempt Page</title>
 </head>
 <body>

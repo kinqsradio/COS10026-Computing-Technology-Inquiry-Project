@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" href="./images/ico.jpeg">
-	<meta name="description" content="Assignment 1" />
-	<meta name="keywords" content="HTML, CSS, PHP"/>
-	<meta name="author" content="Team 4/Cafe Sua Da / Enton, Thanh, Oscar, Tung, Anh" />
 	<?php 
-		include_once "header.html";
+		include_once "header.inc"; // include the head 
 	?>
 	<title>Introductory home page</title>
 </head>
 <body oncontextmenu="return false;">
-	<section>
+<section>
 		<div class="topnav">
 			<strong><a href="index.php" class="active">HOME</a></strong>
 			<strong><a href="topic.php">TOPIC</a></strong>
 			<strong><a href="quiz.php">QUIZ</a></strong>
 			<strong><a href="enhancements.php">ENHANCEMENTS</a></strong>
-			<strong><a href="enhancements2.php">ENHANCEMENTS 2</a></strong>
+			<strong><a href="phpenhancements.php">ENHANCEMENTS 2</a></strong>
 			<strong><a href="admin.php">MANAGE</a></strong>
 		</div>
-	</section>
+</section>
 	<section class="article-section" id="article_section">
         <h1>WELCOME TO COFFEE SCRIPT</h1>
 
@@ -60,7 +55,7 @@
 		</div>
     </section>
 <?php
-	include_once "footer.html";
+	include_once "footer.inc"; //include the footer
 ?>
 
 </body>
